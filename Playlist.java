@@ -15,8 +15,16 @@ class Playlist {
       System.out.println(Courant);
     }
   }
-  
-  public void add(Chanson chanson){
-    Ensemble.add(chanson);
+
+  public void add(Stockage stock){
+    Ensemble.add(stock);
+  }
+
+  public String toString(){
+    String s="";
+    for (Stockage Courant : Ensemble ) {
+      s+=(Courant+"\n");
+    }
+    return s;
   }
 }

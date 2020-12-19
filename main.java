@@ -4,9 +4,9 @@ class main{
     Chanson stock1 = new Chanson("Chanson deux",120,2,"Artiste","musique.mp4",2);
     Playlist playlist = new Playlist("Liste de lecture",1);
     LivreAudio livreaudio = new LivreAudio("livreaudio1",643,1,"Moi meme","LivreAudio.mp3",1,2);
-    System.out.println(livreaudio);
     playlist.add(stock);
     playlist.add(stock1);
-    playlist.Affiche();
+    playlist.add(livreaudio);
+    System.out.println(playlist);
   }
 }
