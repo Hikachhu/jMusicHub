@@ -1,7 +1,7 @@
 package musichub.business;
 import musichub.business.*;
 
-public class Stockage{
+public abstract class Stockage{
   protected String Titre;
   protected int Duree;
   protected int ID;
@@ -11,17 +11,21 @@ public class Stockage{
     this.Duree=Duree;
     this.ID=ID;
   }
+
   public String getTitre(){
     return this.Titre;
   }
+
   public int getDureeSec(){
     return this.Duree;
   }
+
   public String getDureeMin(){
     int min=(this.Duree)/60;
     int secondes=((this.Duree)%60);
     return String.valueOf(min)+"m"+String.valueOf(secondes)+"s";
   }
+
   public int getID(){
     return this.ID;
   }

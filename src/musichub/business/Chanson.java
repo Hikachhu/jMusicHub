@@ -11,6 +11,7 @@ public class Chanson extends Stockage{
     this.Contenu=Contenu;
     this.genre=Genre.values()[genre];
   }
+  
   public String toString(){
     return "Titre ="+getTitre()+" | Duree ="+getDureeMin()+" | ID= "+getID()+" | Artiste = "+Artiste+" | Contenu = "+ Contenu+ " | genre = "+ genre;
   }
