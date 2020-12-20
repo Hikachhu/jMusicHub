@@ -5,10 +5,11 @@ import musichub.business.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Album extends Stockage implements Listing{
+public class Album extends Stockage {
   private String Artiste;
   private int DateSortie;
   protected int Duree;
+  public ArrayList<Stockage> Ensemble = new ArrayList<Stockage>();
 
   public Album(String Titre,int Duree,int ID,String Artiste,int DateSortie){
     super(Titre,ID);
@@ -30,7 +31,7 @@ public class Album extends Stockage implements Listing{
   }
 
   public String toString(){
-    String s="";
+    String s="Album: "+getTitre()+" ID: "+getID()+" Artiste: "+Artiste+" DateSortie: "+DateSortie+" Duree: "+getDureeMin()+"\n";
     for (Stockage Courant : Ensemble ) {
       s+=(Courant+"\n");
     }

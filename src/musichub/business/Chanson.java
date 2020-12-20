@@ -23,7 +23,7 @@ public class Chanson extends Stockage{
     return String.valueOf(min)+"m"+String.valueOf(secondes)+"s";
   }
   public String toString(){
-    return "Titre ="+getTitre()+" | Duree ="+getDureeMin()+" | ID= "+getID()+" | Artiste = "+Artiste+" | Contenu = "+ Contenu+ " | genre = "+ genre;
+    return "Titre ="+getTitre()+" | Duree ="+getDureeMin()+" | ID= "+getID()+" | Artiste = "+Artiste+" | Contenu = "+ Contenu+ " | genre = "+ getGenre();
   }
 
   public Genre getGenre(){

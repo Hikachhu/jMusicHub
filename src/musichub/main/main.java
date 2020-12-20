@@ -6,10 +6,10 @@ import musichub.main.*;
 import java.util.Scanner;
 
 class main{
+
   public static void main(String[] args) {
     char c='h';
 
-    // Chanson stock = new Chanson("Dernier texto",110,1,"Artiste","musique.mp4",1);
     // Chanson stock1 = new Chanson("Chanson deux",120,2,"Artiste","musique.mp4",2);
     // Playlist playlist = new Playlist("Liste de lecture",1);
     // LivreAudio livreaudio = new LivreAudio("livreaudio1",643,1,"Moi meme","LivreAudio.mp3",1,2);
@@ -18,34 +18,85 @@ class main{
     // playlist.add(livreaudio);
     // System.out.println(playlist);
 
-    ListeVolatile ListeChanson    = new ListeVolatile();
-    ListeVolatile ListeLivreAudio = new ListeVolatile();
-    ListeVolatile ListeAlbum      = new ListeVolatile();
-    ListeVolatile ListePlaylist   = new ListeVolatile();
+    Scanner clavier = new Scanner(System.in);
+    int ChansonNumber;
+    ChansonVolatile     ListeChanson    = new ChansonVolatile();
+    LivreAudioVolatile  ListeLivreAudio = new LivreAudioVolatile();
+    AlbumVolatile       ListeAlbum      = new AlbumVolatile();
+    PlaylistVolatile    ListePlaylist   = new PlaylistVolatile();
 
+    Chanson stock   = new Chanson("Premiere " ,110,1,"Artiste","musique.mp4",1);
+    Chanson stock1  = new Chanson("deuxieme"  ,120,2,"Artiste","musique.mp4",1);
+    Chanson stock2  = new Chanson("troisieme" ,130,3,"Artiste","musique.mp4",1);
+    Chanson stock3  = new Chanson("quatrieme" ,140,4,"Artiste","musique.mp4",1);
+    ListeChanson.add(stock);
+    ListeChanson.add(stock1);
+    ListeChanson.add(stock2);
+    ListeChanson.add(stock3);
 
+    LivreAudio lstock = new LivreAudio("Livre1",123,1,"Auteur1","Livre1.mp4",1,1);
+    LivreAudio lstock1 = new LivreAudio("Livre1",123,2,"Auteur1","Livre1.mp4",1,1);
+    LivreAudio lstock2 = new LivreAudio("Livre1",123,3,"Auteur1","Livre1.mp4",1,1);
+    LivreAudio lstock3 = new LivreAudio("Livre1",123,4,"Auteur1","Livre1.mp4",1,1);
+    ListeLivreAudio.add(lstock);
+    ListeLivreAudio.add(lstock1);
+    ListeLivreAudio.add(lstock2);
+    ListeLivreAudio.add(lstock3);
+
+    Album astock = new Album("Album1",134,1,"Createur d'album",1989);
+    ListeAlbum.add(astock);
     do{
-      Scanner clavier = new Scanner(System.in);
       switch (c) {
+        case 'd':
+          System.out.println("Chanson:");
+          System.out.println(ListeChanson);
+
+          System.out.println("\nLivre audio:");
+          System.out.println(ListeLivreAudio);
+
+          System.out.println("\nAlbum :");
+          System.out.println(ListeAlbum);
+
+          System.out.println("\nPlaylist:");
+          System.out.println(ListePlaylist);
+          break;
+
         case 'c':
-          ListeChanson.addUserChanson();
+          ListeChanson.addUser();
           break;
+
         case 'a':
-          ListeAlbum.addUserAlbum();
+          ListeAlbum.addUser();
           break;
+
         case '+':
+          System.out.println("Liste des albums et leurs contenus:\n " +ListeAlbum);
+          System.out.println("Listes des chansons disponibles: \n"    +ListeChanson);
+          System.out.println("Selectionnez l'album où ajouter des musiques");
+          int AlbumNumber=clavier.nextInt();
+          System.out.println("Selectionnez un id à ajouter");
+          ChansonNumber=clavier.nextInt();
+          ListeAlbum.add(AlbumNumber-1,(ListeChanson.get(ChansonNumber-1)));
+
           break;
+
         case 'l':
-          ListeAlbum.addUserLivreAudio();
+          ListeLivreAudio.addUser();
           break;
+
         case 'p':
+          ListePlaylist.addContenu(ListeLivreAudio,ListeChanson);
           break;
+
         case '-':
           break;
+
         case 's':
           break;
+
         case 'h':
           System.out.println("Commandes disponibles");
+          System.out.println("« d » : Affiche toutes les listes");
           System.out.println("« c » : rajout d’une nouvelle chanson");
           System.out.println("« a » : rajout d’un nouvel album");
           System.out.println("« + » : rajout d’une chanson existante à un album");
@@ -57,6 +108,8 @@ class main{
           System.out.println("« q » : quitte le programme");
           break;
       }
+      System.out.println("___________________________________________________");
+      System.out.println("Entrez une commande:");
       c = clavier.next().charAt(0);
     }while (c!='q');
   }

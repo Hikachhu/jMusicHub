@@ -25,6 +25,7 @@ public class LivreAudio extends Stockage{
     int secondes=((this.Duree)%60);
     return String.valueOf(min)+"m"+String.valueOf(secondes)+"s";
   }
+
   public String toString(){
     return "Titre="+Titre +" Duree="+getDureeMin()+" ID="+ID+" Auteur="+ Auteur+" Contenu="+ Contenu+" langue="+ langue+" categorie=" +categorie;
   }

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Playlist extends Stockage implements Listing{
+  public ArrayList<Stockage> Ensemble = new ArrayList<Stockage>();
+  
   public Playlist(String Nom,int ID){
     super(Nom,ID);
   }
