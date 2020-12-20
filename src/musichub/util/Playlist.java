@@ -5,15 +5,9 @@ import musichub.business.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Playlist {
-  private ArrayList<Stockage> Ensemble;
-  private String Nom;
-  private int ID;
-
+public class Playlist extends Stockage implements Listing{
   public Playlist(String Nom,int ID){
-    Ensemble = new ArrayList<Stockage>();
-    this.Nom=Nom;
-    this.ID=ID;
+    super(Nom,ID);
   }
   public void Affiche(){
     for (Stockage Courant : Ensemble ) {

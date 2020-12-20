@@ -8,24 +8,35 @@ import java.util.Scanner;
 class main{
   public static void main(String[] args) {
     char c='h';
-    Chanson stock = new Chanson("Dernier texto",110,1,"Artiste","musique.mp4",1);
-    Chanson stock1 = new Chanson("Chanson deux",120,2,"Artiste","musique.mp4",2);
-    Playlist playlist = new Playlist("Liste de lecture",1);
-    LivreAudio livreaudio = new LivreAudio("livreaudio1",643,1,"Moi meme","LivreAudio.mp3",1,2);
-    playlist.add(stock);
-    playlist.add(stock1);
-    playlist.add(livreaudio);
-    System.out.println(playlist);
+
+    // Chanson stock = new Chanson("Dernier texto",110,1,"Artiste","musique.mp4",1);
+    // Chanson stock1 = new Chanson("Chanson deux",120,2,"Artiste","musique.mp4",2);
+    // Playlist playlist = new Playlist("Liste de lecture",1);
+    // LivreAudio livreaudio = new LivreAudio("livreaudio1",643,1,"Moi meme","LivreAudio.mp3",1,2);
+    // playlist.add(stock);
+    // playlist.add(stock1);
+    // playlist.add(livreaudio);
+    // System.out.println(playlist);
+
+    ListeVolatile ListeChanson    = new ListeVolatile();
+    ListeVolatile ListeLivreAudio = new ListeVolatile();
+    ListeVolatile ListeAlbum      = new ListeVolatile();
+    ListeVolatile ListePlaylist   = new ListeVolatile();
+
+
     do{
       Scanner clavier = new Scanner(System.in);
       switch (c) {
         case 'c':
+          ListeChanson.addUserChanson();
           break;
         case 'a':
+          ListeAlbum.addUserAlbum();
           break;
         case '+':
           break;
         case 'l':
+          ListeAlbum.addUserLivreAudio();
           break;
         case 'p':
           break;
