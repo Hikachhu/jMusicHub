@@ -5,7 +5,7 @@ import musichub.business.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LivreAudioVolatile implements Listing{
+public class LivreAudioVolatile{
   public ArrayList<Stockage> Ensemble = new ArrayList<Stockage>();
 
   public void addUser(){
@@ -42,9 +42,11 @@ public class LivreAudioVolatile implements Listing{
   }
 
   public Stockage get(int number){
-
     return Ensemble.get(number-1);
+  }
 
+  public ArrayList<Stockage> getEnsemble(){
+    return Ensemble;
   }
 
 }

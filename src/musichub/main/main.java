@@ -25,14 +25,15 @@ class main{
     AlbumVolatile       ListeAlbum      = new AlbumVolatile();
     PlaylistVolatile    ListePlaylist   = new PlaylistVolatile();
 
-    Chanson stock   = new Chanson("Premiere " ,110,1,"Artiste","musique.mp4",1);
-    Chanson stock1  = new Chanson("deuxieme"  ,120,2,"Artiste","musique.mp4",1);
-    Chanson stock2  = new Chanson("troisieme" ,130,3,"Artiste","musique.mp4",1);
-    Chanson stock3  = new Chanson("quatrieme" ,140,4,"Artiste","musique.mp4",1);
-    ListeChanson.add(stock);
-    ListeChanson.add(stock1);
-    ListeChanson.add(stock2);
-    ListeChanson.add(stock3);
+    // Chanson stock   = new Chanson("Premiere " ,110,1,"Artiste","musique.mp4",1);
+    // Chanson stock1  = new Chanson("deuxieme"  ,120,2,"Artiste","musique.mp4",1);
+    // Chanson stock2  = new Chanson("troisieme" ,130,3,"Artiste","musique.mp4",1);
+    // ListeChanson.add(stock);
+    // ListeChanson.add(stock1);
+    // ListeChanson.add(stock2);
+
+    WriteChansonVolatile Fichier = new WriteChansonVolatile();
+    ListeChanson  = Fichier.readXML("Chanson.xml");
 
     LivreAudio lstock = new LivreAudio("Livre1",123,1,"Auteur1","Livre1.mp4",1,1);
     LivreAudio lstock1 = new LivreAudio("Livre1",123,2,"Auteur1","Livre1.mp4",1,1);
@@ -92,6 +93,7 @@ class main{
           break;
 
         case 's':
+          Fichier.writeXML("Chanson.xml",ListeChanson);
           break;
 
         case 'h':
@@ -112,5 +114,6 @@ class main{
       System.out.println("Entrez une commande:");
       c = clavier.next().charAt(0);
     }while (c!='q');
+
   }
 }

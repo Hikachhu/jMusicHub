@@ -9,7 +9,7 @@ public class Album extends Stockage {
   private String Artiste;
   private int DateSortie;
   protected int Duree;
-  public ArrayList<Stockage> Ensemble = new ArrayList<Stockage>();
+  public ArrayList<Stockage> EnsembleChanson = new ArrayList<Stockage>();
 
   public Album(String Titre,int Duree,int ID,String Artiste,int DateSortie){
     super(Titre,ID);
@@ -26,13 +26,14 @@ public class Album extends Stockage {
     int secondes=((this.Duree)%60);
     return String.valueOf(min)+"m"+String.valueOf(secondes)+"s";
   }
+  
   public void add(Stockage stock){
-    Ensemble.add(stock);
+    EnsembleChanson.add(stock);
   }
 
   public String toString(){
     String s="Album: "+getTitre()+" ID: "+getID()+" Artiste: "+Artiste+" DateSortie: "+DateSortie+" Duree: "+getDureeMin()+"\n";
-    for (Stockage Courant : Ensemble ) {
+    for (Stockage Courant : EnsembleChanson ) {
       s+=(Courant+"\n");
     }
     return s;

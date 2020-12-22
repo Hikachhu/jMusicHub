@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Playlist extends Stockage implements Listing{
   public ArrayList<Stockage> Ensemble = new ArrayList<Stockage>();
-  
+
   public Playlist(String Nom,int ID){
     super(Nom,ID);
   }
@@ -29,7 +29,7 @@ public class Playlist extends Stockage implements Listing{
    * @return Renvoi la chaine de texte à afficher
    */
   public String toString(){
-    String s="";
+    String s="Nom: "+getTitre()+" ID: "+getID()+"\n";
     for (Stockage Courant : Ensemble ) {
       s+=(Courant+"\n");
     }

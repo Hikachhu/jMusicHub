@@ -5,7 +5,7 @@ import musichub.business.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ChansonVolatile implements Listing{
+public class ChansonVolatile{
   public ArrayList<Chanson> Ensemble = new ArrayList<Chanson>();
 
   public void addUser(){
@@ -38,7 +38,13 @@ public class ChansonVolatile implements Listing{
     }
     return s;
   }
+
+  public ArrayList<Chanson> getEnsemble(){
+    return Ensemble;
+  }
+
   public Chanson get(int number){
     return Ensemble.get(number);
   }
+
 }

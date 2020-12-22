@@ -13,6 +13,23 @@ public class Chanson extends Stockage{
     this.Duree=Duree;
     this.genre=Genre.values()[genre];
   }
+
+  public String getArtiste(){
+    return this.Artiste;
+  }
+
+  public String getContenu(){
+    return this.Contenu;
+  }
+
+  public Genre getGenre(){
+    return this.genre;
+  }
+
+  public int getGenreNumber(){
+    return (this.genre).ordinal();
+  }
+
   public int getDureeSec(){
     return this.Duree;
   }
@@ -26,7 +43,4 @@ public class Chanson extends Stockage{
     return "Titre ="+getTitre()+" | Duree ="+getDureeMin()+" | ID= "+getID()+" | Artiste = "+Artiste+" | Contenu = "+ Contenu+ " | genre = "+ getGenre();
   }
 
-  public Genre getGenre(){
-    return this.genre;
-  }
 }

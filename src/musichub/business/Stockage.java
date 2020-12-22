@@ -1,7 +1,8 @@
 package musichub.business;
 import musichub.business.*;
+import java.io.Serializable;
 
-public abstract class Stockage{
+public abstract class Stockage implements Serializable{
   protected String Titre;
   protected int ID;
 
