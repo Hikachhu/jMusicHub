@@ -25,27 +25,24 @@ class main{
     AlbumVolatile       ListeAlbum      = new AlbumVolatile();
     PlaylistVolatile    ListePlaylist   = new PlaylistVolatile();
 
-    // Chanson stock   = new Chanson("Premiere " ,110,1,"Artiste","musique.mp4",1);
-    // Chanson stock1  = new Chanson("deuxieme"  ,120,2,"Artiste","musique.mp4",1);
-    // Chanson stock2  = new Chanson("troisieme" ,130,3,"Artiste","musique.mp4",1);
-    // ListeChanson.add(stock);
-    // ListeChanson.add(stock1);
-    // ListeChanson.add(stock2);
+    WriteChansonVolatile    FichierChansons =   new WriteChansonVolatile();
+    ListeChanson  = FichierChansons.readXML("Chanson.xml");
+    WriteAlbumVolatile FichierAlbums = new WriteAlbumVolatile();
+    ListeAlbum  = FichierAlbums.readXML("Albums.xml");
+    WriteLivreAudioVolatile FichierLivreAudio = new WriteLivreAudioVolatile();
+    ListeLivreAudio  = FichierLivreAudio.readXML("LivreAudio.xml");
 
-    WriteChansonVolatile Fichier = new WriteChansonVolatile();
-    ListeChanson  = Fichier.readXML("Chanson.xml");
+    // LivreAudio lstock = new LivreAudio("Livre1",123,1,"Auteur1","Livre1.mp4",1,1);
+    // LivreAudio lstock1 = new LivreAudio("Livre1",123,2,"Auteur1","Livre1.mp4",1,1);
+    // LivreAudio lstock2 = new LivreAudio("Livre1",123,3,"Auteur1","Livre1.mp4",1,1);
+    // LivreAudio lstock3 = new LivreAudio("Livre1",123,4,"Auteur1","Livre1.mp4",1,1);
+    // ListeLivreAudio.add(lstock);
+    // ListeLivreAudio.add(lstock1);
+    // ListeLivreAudio.add(lstock2);
+    // ListeLivreAudio.add(lstock3);
 
-    LivreAudio lstock = new LivreAudio("Livre1",123,1,"Auteur1","Livre1.mp4",1,1);
-    LivreAudio lstock1 = new LivreAudio("Livre1",123,2,"Auteur1","Livre1.mp4",1,1);
-    LivreAudio lstock2 = new LivreAudio("Livre1",123,3,"Auteur1","Livre1.mp4",1,1);
-    LivreAudio lstock3 = new LivreAudio("Livre1",123,4,"Auteur1","Livre1.mp4",1,1);
-    ListeLivreAudio.add(lstock);
-    ListeLivreAudio.add(lstock1);
-    ListeLivreAudio.add(lstock2);
-    ListeLivreAudio.add(lstock3);
-
-    Album astock = new Album("Album1",134,1,"Createur d'album",1989);
-    ListeAlbum.add(astock);
+    // Album astock = new Album("Album1",134,1,"Createur d'album",1989);
+    // ListeAlbum.add(astock);
     do{
       switch (c) {
         case 'd':
@@ -77,7 +74,7 @@ class main{
           int AlbumNumber=clavier.nextInt();
           System.out.println("Selectionnez un id à ajouter");
           ChansonNumber=clavier.nextInt();
-          ListeAlbum.add(AlbumNumber-1,(ListeChanson.get(ChansonNumber-1)));
+          ListeAlbum.add(AlbumNumber,(ListeChanson.get(ChansonNumber)));
 
           break;
 
@@ -93,7 +90,10 @@ class main{
           break;
 
         case 's':
-          Fichier.writeXML("Chanson.xml",ListeChanson);
+          FichierChansons.writeXML("Chanson.xml",ListeChanson);
+          FichierAlbums.writeXML("Albums.xml",ListeAlbum);
+          FichierLivreAudio.writeXML("LivreAudio.xml",ListeLivreAudio);
+
           break;
 
         case 'h':

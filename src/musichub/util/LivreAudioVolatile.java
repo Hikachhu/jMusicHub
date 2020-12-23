@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LivreAudioVolatile{
-  public ArrayList<Stockage> Ensemble = new ArrayList<Stockage>();
+  public ArrayList<LivreAudio> Ensemble = new ArrayList<LivreAudio>();
 
   public void addUser(){
 
@@ -31,21 +31,21 @@ public class LivreAudioVolatile{
 
   public String toString(){
     String s="";
-    for (Stockage Courant : Ensemble ) {
+    for (LivreAudio Courant : Ensemble ) {
       s+=(Courant+"\n");
     }
     return s;
   }
 
-  public void add(Stockage nouveau){
+  public void add(LivreAudio nouveau){
     Ensemble.add(nouveau);
   }
 
-  public Stockage get(int number){
+  public LivreAudio get(int number){
     return Ensemble.get(number-1);
   }
 
-  public ArrayList<Stockage> getEnsemble(){
+  public ArrayList<LivreAudio> getEnsemble(){
     return Ensemble;
   }
 

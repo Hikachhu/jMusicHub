@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AlbumVolatile {
-  public ArrayList<Stockage> Ensemble = new ArrayList<Stockage>();
+  public ArrayList<Album> Ensemble = new ArrayList<Album>();
 
   public void addUser(){
 
@@ -25,8 +25,8 @@ public class AlbumVolatile {
     Ensemble.add(nouveau);
   }
 
-  public void add(int AlbumNumber,Stockage Aajouter){
-    Album nouveau=(Album)Ensemble.get(AlbumNumber);
+  public void add(int AlbumNumber,Chanson Aajouter){
+    Album nouveau=Ensemble.get(AlbumNumber);
     nouveau.add(Aajouter);
   }
 
@@ -36,17 +36,17 @@ public class AlbumVolatile {
 
   public String toString(){
     String s="";
-    for (Stockage Courant : Ensemble ) {
+    for (Album Courant : Ensemble ) {
       s+=(Courant+"\n");
     }
     return s;
   }
 
-  public ArrayList<Stockage> getEnsemble(){
+  public ArrayList<Album> getEnsemble(){
     return Ensemble;
   }
 
-  public Stockage get(int number){
+  public Album get(int number){
     return Ensemble.get(number);
   }
 }
