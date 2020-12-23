@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.io.Serializable;
 
 public class PlaylistVolatile {
-  public ArrayList<Stockage> Ensemble = new ArrayList<Stockage>();
+  public ArrayList<Playlist> Ensemble = new ArrayList<Playlist>();
 
   public void addUser(){
 
@@ -57,18 +57,29 @@ public class PlaylistVolatile {
 
   public String toString(){
     String s="";
-    for (Stockage Courant : Ensemble ) {
+    for (Playlist Courant : Ensemble ) {
       s+=(Courant+"\n");
     }
     return s;
   }
 
-  public ArrayList<Stockage> getEnsemble(){
+  public ArrayList<Playlist> getEnsemble(){
     return Ensemble;
   }
 
-  public Stockage get(int number){
+  public Playlist get(int number){
     return Ensemble.get(number);
+  }
+
+  public void add(Playlist Aajouter){
+    Ensemble.add(Aajouter);
+  }
+
+  public void suppression(){
+    Scanner clavier = new Scanner(System.in);
+    System.out.println("Choisissez la playlist à supprimer");
+    int Number=clavier.nextInt();
+    Ensemble.remove(Number-1);
   }
 
 }

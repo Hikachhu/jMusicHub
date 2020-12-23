@@ -4,6 +4,21 @@ import musichub.business.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+
+import javax.xml.parsers.*;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.xml.sax.SAXException;
+
+import org.w3c.dom.*;
+import java.io.IOException;
+import java.io.File;
 
 public class Playlist extends Stockage implements Listing{
   public ArrayList<Stockage> Ensemble = new ArrayList<Stockage>();
@@ -54,5 +69,26 @@ public class Playlist extends Stockage implements Listing{
 
     Chanson nouveau= new Chanson(Titre,Duree,Ensemble.size()+1,Artiste,Contenu,genre);
     Ensemble.add(nouveau);
+  }
+
+  public Element getElement(Document document){
+    Element client = document.createElement("Playlist");
+
+      Element Titre = document.createElement("Titre");
+      Titre.appendChild(document.createTextNode(getTitre()));
+      client.appendChild(Titre);
+
+      Element ID = document.createElement("ID");
+      ID.appendChild(document.createTextNode(Integer.toString(getID())));
+      client.appendChild(ID);
+
+      Element ListeAudios = document.createElement("ListeAudios");
+
+      for (Stockage Actuel : Ensemble ) {
+        ListeAudios.appendChild(Actuel.getElement(document));
+      }
+      client.appendChild(ListeAudios);
+
+      return client;
   }
 }

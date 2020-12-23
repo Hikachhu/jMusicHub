@@ -31,6 +31,8 @@ class main{
     ListeAlbum  = FichierAlbums.readXML("Albums.xml");
     WriteLivreAudioVolatile FichierLivreAudio = new WriteLivreAudioVolatile();
     ListeLivreAudio  = FichierLivreAudio.readXML("LivreAudio.xml");
+    WritePlaylistVolatile FichierPlaylist = new WritePlaylistVolatile();
+    ListePlaylist  = FichierPlaylist.readXML("Playlist.xml");
 
     // LivreAudio lstock = new LivreAudio("Livre1",123,1,"Auteur1","Livre1.mp4",1,1);
     // LivreAudio lstock1 = new LivreAudio("Livre1",123,2,"Auteur1","Livre1.mp4",1,1);
@@ -87,12 +89,14 @@ class main{
           break;
 
         case '-':
+          ListePlaylist.suppression();
           break;
 
         case 's':
           FichierChansons.writeXML("Chanson.xml",ListeChanson);
           FichierAlbums.writeXML("Albums.xml",ListeAlbum);
           FichierLivreAudio.writeXML("LivreAudio.xml",ListeLivreAudio);
+          FichierPlaylist.writeXML("Playlist.xml",ListePlaylist);
 
           break;
 
