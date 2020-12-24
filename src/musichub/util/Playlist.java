@@ -2,8 +2,7 @@ package musichub.util;
 import musichub.util.*;
 import musichub.business.*;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -31,6 +30,7 @@ public class Playlist extends Stockage implements Listing{
       System.out.println(Courant);
     }
   }
+
   /**
    * Ajoute un element mis en parametre dans la liste
    * @param stock parametre à rajouter
@@ -91,4 +91,5 @@ public class Playlist extends Stockage implements Listing{
 
       return client;
   }
+
 }

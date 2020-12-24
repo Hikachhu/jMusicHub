@@ -24,7 +24,7 @@ import java.io.File;
 import musichub.util.*;
 import musichub.business.*;
 
-public class Album extends Stockage {
+public class Album extends Stockage{
   private String Artiste;
   private int DateSortie;
   protected int Duree;
@@ -101,5 +101,11 @@ public class Album extends Stockage {
 
         AlbumElem.appendChild(ListeChanson);
     return AlbumElem;
+  }
+
+  public ArrayList<Chanson> Tri(){
+   ArrayList<Chanson> Trier= new ArrayList<Chanson>(EnsembleChanson);
+   Trier.sort((p1, p2) -> p1.getGenre().compareTo(p2.getGenre()));
+   return Trier;
   }
 }

@@ -49,4 +49,10 @@ public class LivreAudioVolatile{
     return Ensemble;
   }
 
+  public ArrayList<LivreAudio> Trie(){
+    ArrayList<LivreAudio> Trier= new ArrayList<LivreAudio>(Ensemble);
+    Ensemble.sort((p1, p2) -> (p1.getAuteur().compareTo(p2.getAuteur())));
+    return Trier;
+  }
+
 }

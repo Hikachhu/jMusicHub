@@ -30,6 +30,10 @@ public class AlbumVolatile {
     nouveau.add(Aajouter);
   }
 
+  public void TriMusique(int AlbumNumber){
+    (Ensemble.get(AlbumNumber)).Tri();
+  }
+
   public void add(Album nouveau){
     Ensemble.add(nouveau);
   }
@@ -49,4 +53,19 @@ public class AlbumVolatile {
   public Album get(int number){
     return Ensemble.get(number);
   }
+
+  public ArrayList<Album> Trie(){
+    ArrayList<Album> Trier= new ArrayList<Album>(Ensemble);
+    Trier.sort((p1, p2) -> Integer.valueOf(p1.getDateSortie()).compareTo(p2.getDateSortie()));
+    return Trier;
+  }
+
+  public ArrayList<Album> TrieChanson(){
+    ArrayList<Album> Trier= new ArrayList<Album>(Ensemble);
+    for (Album album: Trier){
+      album.Tri();
+    }
+    return Trier;
+  }
+
 }

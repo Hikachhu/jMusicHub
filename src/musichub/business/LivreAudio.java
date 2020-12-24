@@ -60,6 +60,10 @@ public class LivreAudio extends Stockage{
     return (this.langue).ordinal();
   }
 
+  public int compareTo(Object externe) {
+      return getTitre().compareTo(((LivreAudio)externe).getTitre());
+  }
+
   public String toString(){
     return "Titre="+Titre +" Duree="+getDureeMin()+" ID="+ID+" Auteur="+ Auteur+" Contenu="+ Contenu+" langue="+ langue+" categorie=" +categorie;
   }

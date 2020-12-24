@@ -2,8 +2,7 @@ package musichub.util;
 import musichub.util.*;
 import musichub.business.*;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 import java.io.Serializable;
 
 public class PlaylistVolatile {
@@ -80,6 +79,12 @@ public class PlaylistVolatile {
     System.out.println("Choisissez la playlist à supprimer");
     int Number=clavier.nextInt();
     Ensemble.remove(Number-1);
+  }
+
+  public ArrayList<Playlist> Trie(){
+    ArrayList<Playlist> Trier= new ArrayList<Playlist>(Ensemble);
+    Trier.sort((p1, p2) -> p1.getTitre().compareTo(p2.getTitre()));
+    return Trier;
   }
 
 }

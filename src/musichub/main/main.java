@@ -8,15 +8,17 @@ import java.util.Scanner;
 class main{
 
   public static void main(String[] args) {
-    char c='h';
 
-    // Chanson stock1 = new Chanson("Chanson deux",120,2,"Artiste","musique.mp4",2);
-    // Playlist playlist = new Playlist("Liste de lecture",1);
-    // LivreAudio livreaudio = new LivreAudio("livreaudio1",643,1,"Moi meme","LivreAudio.mp3",1,2);
-    // playlist.add(stock);
-    // playlist.add(stock1);
-    // playlist.add(livreaudio);
-    // System.out.println(playlist);
+    final String RESET = "\u001B[0m";
+    final String BLACK = "\u001B[30m";
+    final String RED = "\u001B[31m";
+    final String GREEN = "\u001B[32m";
+    final String YELLOW = "\u001B[33m";
+    final String BLUE = "\u001B[34m";
+    final String PURPLE = "\u001B[35m";
+    final String CYAN = "\u001B[36m";
+    final String WHITE = "\u001B[37m";
+    char c='h';
 
     Scanner clavier = new Scanner(System.in);
     int ChansonNumber;
@@ -48,17 +50,20 @@ class main{
     do{
       switch (c) {
         case 'd':
-          System.out.println("Chanson:");
+          System.out.println(RED+"Chanson disponibles:"+RESET);
           System.out.println(ListeChanson);
 
-          System.out.println("\nLivre audio:");
-          System.out.println(ListeLivreAudio);
+          System.out.println(RED+"\nAlbum par date de sortie :"+RESET);
+          System.out.println(ListeAlbum.Trie());
 
-          System.out.println("\nAlbum :");
-          System.out.println(ListeAlbum);
+          System.out.println(RED+"\nAlbum par genre:"+RESET);
+          System.out.println(ListeAlbum.TrieChanson());
 
-          System.out.println("\nPlaylist:");
-          System.out.println(ListePlaylist);
+          System.out.println(RED+"\nPlaylist trie par noms:"+RESET);
+          System.out.println(ListePlaylist.Trie());
+
+          System.out.println(RED+"\nLivre audio:"+RESET);
+          System.out.println(ListeLivreAudio.Trie());
           break;
 
         case 'c':
@@ -101,7 +106,7 @@ class main{
           break;
 
         case 'h':
-          System.out.println("Commandes disponibles");
+          System.out.println(PURPLE+"Commandes disponibles"+RESET);
           System.out.println("« d » : Affiche toutes les listes");
           System.out.println("« c » : rajout d’une nouvelle chanson");
           System.out.println("« a » : rajout d’un nouvel album");
